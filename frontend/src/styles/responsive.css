@@ -1,0 +1,127 @@
+/* responsive.css */
+
+/* Base styles for mobile-first */
+
+/* Ensure inputs and buttons are easy to tap and read on small screens */
+input[type="text"],
+textarea,
+button,
+select {
+  font-size: 18px;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* Containers padding */
+.container {
+  padding: 1rem 1rem;
+  max-width: 100%;
+}
+
+/* Chat bubbles max width on small screens */
+.chatbot-message {
+  max-width: 90%;
+}
+
+/* Quiz question font size */
+.quiz-question {
+  font-size: 1rem;
+}
+
+/* Progress bar height */
+.progress-bar {
+  height: 16px;
+}
+
+/* Medium devices (tablets, 600px and up) */
+@media (min-width: 600px) {
+  .container {
+    max-width: 700px;
+    padding: 1rem 1.5rem;
+  }
+
+  input[type="text"],
+  textarea,
+  button,
+  select {
+    font-size: 20px;
+    padding: 14px;
+  }
+
+  .chatbot-message {
+    max-width: 75%;
+  }
+
+  .quiz-question {
+    font-size: 1.1rem;
+  }
+
+  .progress-bar {
+    height: 18px;
+  }
+}
+
+/* Large devices (desktops, 900px and up) */
+@media (min-width: 900px) {
+  .container {
+    max-width: 900px;
+    padding: 2rem 2rem;
+  }
+
+  input[type="text"],
+  textarea,
+  button,
+  select {
+    font-size: 22px;
+    padding: 16px;
+  }
+
+  .chatbot-message {
+    max-width: 60%;
+  }
+
+  .quiz-question {
+    font-size: 1.2rem;
+  }
+
+  .progress-bar {
+    height: 20px;
+  }
+}
+
+/* Extra large devices (widescreen, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1100px;
+    padding: 2rem 3rem;
+  }
+
+  input[type="text"],
+  textarea,
+  button,
+  select {
+    font-size: 24px;
+    padding: 18px;
+  }
+
+  .chatbot-message {
+    max-width: 50%;
+  }
+
+  .quiz-question {
+    font-size: 1.3rem;
+  }
+}
+
+/* Accessibility: Increase touch targets and spacing on small screens */
+@media (max-width: 599px) {
+  button,
+  .btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .chatbot-message {
+    font-size: 18px;
+  }
+}

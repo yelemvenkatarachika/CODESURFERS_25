@@ -1,0 +1,144 @@
+/* themes.css */
+
+/* Define CSS variables for colors and fonts to be used throughout the app */
+:root {
+  /* Light theme colors */
+  --color-bg: #ffffff;
+  --color-text: #222222;
+  --color-primary: #4caf50;
+  --color-primary-dark: #388e3c;
+  --color-secondary: #e0f2f1;
+  --color-secondary-dark: #b2dfdb;
+  --color-border: #cccccc;
+  --color-error: #d32f2f;
+  --color-success: #388e3c;
+  --font-family: 'OpenDyslexic', Arial, Helvetica, sans-serif;
+  --font-size-base: 18px;
+  --line-height-base: 1.6;
+  --letter-spacing-base: 0.12em;
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+  --color-bg: #121212;
+  --color-text: #e0e0e0;
+  --color-primary: #81c784;
+  --color-primary-dark: #519657;
+  --color-secondary: #004d40;
+  --color-secondary-dark: #00695c;
+  --color-border: #444444;
+  --color-error: #ef9a9a;
+  --color-success: #81c784;
+  --font-family: 'OpenDyslexic', Arial, Helvetica, sans-serif;
+  --font-size-base: 18px;
+  --line-height-base: 1.6;
+  --letter-spacing-base: 0.12em;
+}
+
+/* Apply variables globally */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  letter-spacing: var(--letter-spacing-base);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Buttons */
+button,
+.btn {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+.btn:hover,
+button:focus,
+.btn:focus {
+  background-color: var(--color-primary-dark);
+  outline: none;
+  box-shadow: 0 0 8px var(--color-primary);
+}
+
+/* Borders */
+.border {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+/* Alerts */
+.alert-error {
+  background-color: var(--color-error);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.alert-success {
+  background-color: var(--color-success);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-primary-dark);
+  outline: none;
+  text-decoration: underline;
+}
+
+/* Input focus */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 5px var(--color-primary);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Utility helper for screen reader only content */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  border: 0 !important;
+}
+
+/* Theme toggle button (example) */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus {
+  color: var(--color-primary-dark);
+  outline: none;
+}

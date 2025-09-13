@@ -1,0 +1,32 @@
+# render.yaml - Render.com deployment configuration for EduBot Backend
+
+services:
+  - type: web
+    name: edubot-backend
+    env: python
+    region: oregon                  # Choose your preferred Render region
+    plan: starter                  # Plan: starter, standard, or scale depending on needs
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT --workers 4 --timeout-keep-alive 30
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: edubot-postgres
+          property: connectionString
+      - key: SECRET_KEY
+        value: "your_secret_key_here"
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "30"
+    autoDeploy: true               # Enable auto deploy on git push
+    pullRequestPreviews: false     # Disable PR previews (optional)
+    healthCheckPath: /health       # Endpoint for health checks (implement /health)
+    disk: 5                       # Disk size in GB
+    cpu: 1                        # CPU count
+    memory: 1024                  # RAM in MB
+
+databases:
+  - name: edubot-postgres
+    engine: POSTGRESQL_14
+    plan: starter
+    region: oregon
+    initialDbName: edubotdb

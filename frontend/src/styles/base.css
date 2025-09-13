@@ -1,0 +1,141 @@
+/* base.css */
+
+/* Import OpenDyslexic font from CDN (fallback to sans-serif) */
+@import url('https://cdn.jsdelivr.net/gh/antijingoist/open-dyslexic@1.0.2/open-dyslexic.css');
+
+/* Reset some default browser styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #ffffff;
+  color: #222222;
+  font-family: 'OpenDyslexic', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.12em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Focus outlines for accessibility */
+:focus {
+  outline: 3px solid #4caf50;
+  outline-offset: 2px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: #333333;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+/* Paragraphs and text elements */
+p, label, span, li {
+  margin-bottom: 1rem;
+  color: #222222;
+  word-wrap: break-word;
+}
+
+/* Links */
+a {
+  color: #4caf50;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+  color: #388e3c;
+  outline: none;
+  text-decoration: underline;
+}
+
+/* Buttons */
+button,
+input[type="button"],
+input[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 0.65rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+button:focus,
+input[type="button"]:focus,
+input[type="submit"]:focus {
+  background-color: #388e3c;
+  outline: none;
+}
+
+/* Inputs and Textareas */
+input[type="text"],
+textarea {
+  font-family: 'OpenDyslexic', Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  padding: 12px;
+  border: 2px solid #4caf50;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #333333;
+  resize: vertical;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #388e3c;
+  outline: none;
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Container for a centered layout */
+.container {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+}
+
+/* Accessibility: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

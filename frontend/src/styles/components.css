@@ -1,0 +1,174 @@
+/* components.css */
+
+/* Buttons */
+.btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #388e3c;
+  outline: none;
+  box-shadow: 0 0 10px rgba(56, 142, 60, 0.8);
+}
+
+/* Disabled button */
+.btn:disabled,
+.btn[disabled] {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Text Inputs */
+.input-text {
+  font-family: 'OpenDyslexic', Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  padding: 12px;
+  border: 2px solid #4caf50;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #333333;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.input-text:focus {
+  border-color: #388e3c;
+  outline: none;
+}
+
+/* Chat bubbles */
+.chatbot-message {
+  max-width: 70%;
+  margin: 0.3rem 0;
+  padding: 10px 15px;
+  border-radius: 16px;
+  font-size: 1rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-message.bot {
+  background-color: #e5e5ea;
+  color: #222;
+  align-self: flex-start;
+  border-top-left-radius: 0;
+}
+
+.chatbot-message.user {
+  background-color: #4caf50;
+  color: white;
+  align-self: flex-end;
+  border-top-right-radius: 0;
+}
+
+/* Quiz question container */
+.quiz-question {
+  background-color: #f2f9f1;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #222;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Quiz options (radio buttons) */
+.quiz-option {
+  margin: 0.5rem 0;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  display: block;
+  user-select: none;
+}
+
+.quiz-option:hover,
+.quiz-option input[type="radio"]:focus + label {
+  border-color: #4caf50;
+  outline: none;
+}
+
+/* When selected */
+.quiz-option input[type="radio"]:checked + label {
+  background-color: #c8e6c9;
+  border-color: #388e3c;
+  font-weight: 700;
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 20px;
+  margin-bottom: 1rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #4caf50;
+  width: 0%;
+  transition: width 0.5s ease-in-out;
+  border-radius: 15px 0 0 15px;
+}
+
+/* Cards */
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+/* Scrollable container for chat history or lists */
+.scroll-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Accessibility improvements */
+.focus-visible:focus {
+  outline: 3px solid #4caf50;
+  outline-offset: 3px;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
