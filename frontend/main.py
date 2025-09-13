@@ -7,7 +7,7 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
 # Import the main app module (app.py) from src folder
-from app import *
+import app
 
 if __name__ == "__main__":
     try:
