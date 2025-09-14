@@ -1,55 +1,51 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
 
 class ProgressDashboard:
     def __init__(self):
-        # Initialize session state for progress data if not present
-        if 'progress_data' not in st.session_state:
-            # Example default data format; replace with real backend data fetching
+        # Initialize any data or state needed for the dashboard
+        # For demonstration, let's use some placeholder data
+        if "progress_data" not in st.session_state:
             st.session_state.progress_data = {
-                "dates": pd.date_range(end=pd.Timestamp.today(), periods=7).tolist(),
-                "quiz_scores": [70, 80, 75, 85, 90, 88, 92],
-                "lessons_completed": [1, 1, 2, 2, 3, 3, 4]
+                "lessons_completed": 5,
+                "quizzes_taken": 3,
+                "avg_quiz_score": 85,
+                "reading_time_hours": 10
             }
 
     def render(self):
-        st.markdown("## Learning Progress Dashboard")
+        st.subheader("📊 Your Learning Progress")
 
-        data = st.session_state.progress_data
+        st.write(f"Hello, **{st.session_state.username}**! Here's how you're doing:")
 
-        df = pd.DataFrame({
-            "Date": data["dates"],
-            "Quiz Score (%)": data["quiz_scores"],
-            "Lessons Completed": data["lessons_completed"]
-        })
+        # Display progress metrics
+        col1, col2, col3, col4 = st.columns(4)
 
-        # Display summary statistics
-        st.markdown("### Summary")
-        avg_score = np.mean(df["Quiz Score (%)"])
-        total_lessons = df["Lessons Completed"].max()
-        st.write(f"**Average Quiz Score:** {avg_score:.1f}%")
-        st.write(f"**Total Lessons Completed:** {total_lessons}")
+        with col1:
+            st.metric(label="Lessons Completed", value=st.session_state.progress_data["lessons_completed"])
+        with col2:
+            st.metric(label="Quizzes Taken", value=st.session_state.progress_data["quizzes_taken"])
+        with col3:
+            st.metric(label="Average Quiz Score", value=f"{st.session_state.progress_data['avg_quiz_score']}%")
+        with col4:
+            st.metric(label="Total Reading Time", value=f"{st.session_state.progress_data['reading_time_hours']} hrs")
 
-        # Line chart for quiz scores over dates
-        st.markdown("### Quiz Scores Over Time")
-        st.line_chart(df.set_index("Date")["Quiz Score (%)"])
+        st.markdown("---")
 
-        # Bar chart for lessons completed over dates
-        st.markdown("### Lessons Completed Over Time")
-        st.bar_chart(df.set_index("Date")["Lessons Completed"])
-
-        # Milestones visualization
-        st.markdown("### Milestones Achieved")
-        milestones = ["1 Lesson Completed", "3 Lessons Completed", "5 Lessons Completed", "10 Lessons Completed"]
-        milestones_achieved = [m for m in milestones if int(m.split()[0]) <= total_lessons]
-        if milestones_achieved:
-            for milestone in milestones_achieved:
-                st.success(f"🎉 {milestone}")
+        st.write("### Recent Activity")
+        # Example of dynamic content, e.g., showing recent quiz scores or simplified texts
+        if st.session_state.progress_data["quizzes_taken"] > 0:
+            st.info(f"You scored {st.session_state.progress_data['avg_quiz_score']}% on your last quiz!")
         else:
-            st.info("No milestones achieved yet. Keep progressing!")
+            st.info("No quiz data yet. Take a quiz to see your progress!")
 
-# To use this component, create an instance and call render() inside your Streamlit app
-if __name__ == "__main__":
-    dashboard = ProgressDashboard()
-    dashboard.render()
+        st.write("Keep up the great work!")
+
+        # You might add interactive elements here, like a button to refresh data or view detailed reports
+        if st.button("Refresh Progress"):
+            # In a real app, this would fetch updated data from a database or API
+            st.session_state.progress_data["lessons_completed"] += 1
+            st.session_state.progress_data["quizzes_taken"] += 1
+            st.session_state.progress_data["avg_quiz_score"] = min(100, st.session_state.progress_data["avg_quiz_score"] + 5)
+            st.session_state.progress_data["reading_time_hours"] += 0.5
+            st.success("Progress updated!")
+            st.experimental_rerun() # Rerun to reflect the new state immediately

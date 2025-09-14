@@ -2,6 +2,12 @@ import streamlit as st
 import sys
 import os
 
+st.set_page_config(
+    page_title="EduBot - Dyslexic Learner Support",
+    layout="centered",
+    initial_sidebar_state="auto"
+)
+
 sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
 
 from src.components.TextInput import TextInput
@@ -164,11 +170,7 @@ def set_dyslexia_friendly_style():
     """, unsafe_allow_html=True)
 set_dyslexia_friendly_style()
 
-st.set_page_config(
-    page_title="EduBot - Dyslexic Learner Support",
-    layout="centered",
-    initial_sidebar_state="auto"
-)
+
 
 if "page" not in st.session_state:
     st.session_state.page = 'Landing'
